@@ -23,8 +23,6 @@ object frmMain: TfrmMain
     Height = 287
     Align = alLeft
     TabOrder = 0
-    ExplicitLeft = 0
-    ExplicitTop = 23
   end
   object pnlHead: TPanel
     AlignWithMargins = True
@@ -41,25 +39,23 @@ object frmMain: TfrmMain
       62)
     object btnAdd: TButton
       Left = 371
-      Top = 33
+      Top = 32
       Width = 75
       Height = 25
       Anchors = [akRight, akBottom]
       Caption = 'Add'
       TabOrder = 0
       OnClick = btnAddClick
-      ExplicitTop = 49
     end
     object btnReset: TButton
       Left = 371
-      Top = 2
+      Top = 7
       Width = 75
       Height = 25
       Anchors = [akRight, akBottom]
       Caption = 'Reset'
       TabOrder = 1
       OnClick = btnResetClick
-      ExplicitTop = 18
     end
     object pnlChoiceColor: TPanel
       Left = 10
@@ -92,9 +88,6 @@ object frmMain: TfrmMain
     Color = clSilver
     ParentBackground = False
     TabOrder = 3
-    ExplicitLeft = 0
-    ExplicitTop = 331
-    ExplicitWidth = 459
     DesignSize = (
       453
       62)
@@ -103,8 +96,11 @@ object frmMain: TfrmMain
       Top = 18
       Width = 75
       Height = 25
+      Hint = 'Choice Color'
       Anchors = [akRight, akBottom]
       Caption = 'Display'
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 0
       OnClick = btnDisplayClick
     end

@@ -17,7 +17,7 @@ uses
   Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Menus, System.Actions, Vcl.ActnList;
 
 type
-  CColor = (lime, red, blue, yellow, green, white, black, orange, gray);
+  CColor = (olive, red, blue, yellow, green, white, black, orange, gray);
   Colors = set of CColor;
   PColors = ^CColor;
 
@@ -67,6 +67,8 @@ type
     procedure DisplayColors(c: Colors);
     procedure AddToListBox(MyListBox: TListBox; YourString: String);
     function StringToCharSet(const Txt: string): Colors;
+    function StringToMySet(const Str: string): Colors;
+    function MySetToString(MySet: Colors): string;
   public
     { Public-Deklarationen }
   end;
@@ -76,7 +78,7 @@ var
 
 implementation
 
-uses uAbout;
+uses uAbout, System.TypInfo;
 
 {$R *.dfm}
 
@@ -148,6 +150,27 @@ begin
   end;
 end;
 
+function TfrmMain.StringToMySet(const Str: string): Colors;
+var
+  i: CColor;
+begin
+  Result := [];
+  for i := Low(i) to High(i) do
+    if Pos(LowerCase(GetEnumName(TypeInfo(CColor), Ord(i))),LowerCase(Str)) <> 0 then
+      Include(Result, i);
+end;
+
+function TfrmMain.MySetToString(MySet: Colors): string;
+var
+  i: CColor;
+begin
+  Result := '';
+  // one way to iterate
+  for i := Low(i) to High(i) do
+    if i in MySet then
+      Result := Result + GetEnumName(TypeInfo(CColor), Ord(i)) + ' ';
+end;
+
 procedure TfrmMain.btnAddClick(Sender: TObject);
 var
   sChoiceColor: string;
@@ -156,10 +179,11 @@ begin
   sChoiceColor := ColorToString(pnlChoiceColor.Color);
   sChoiceColor := Copy(sChoiceColor, 3, Length(sChoiceColor));
   AddToListBox(lstBoxColor, '- ' + sChoiceColor + ' ');
-  if (StringToCharSet('red') = [red]) then
-    ShowMessage('OK');
+//   ShowMessage(GetEnumName(TypeInfo(CColor),Ord(red)));
+   tmpC:=StringToMySet(sChoiceColor);
+   c := c + tmpC;
 
-  c := c + StringToCharSet('red');
+
 end;
 
 procedure TfrmMain.btnDisplayClick(Sender: TObject);
@@ -176,12 +200,12 @@ end;
 
 procedure TfrmMain.DisplayColors(c: Colors);
 const
-  names: array [CColor] of string[9] = ('lime', 'red', 'blue', 'yellow', 'green', 'white', 'black', 'orange', 'gray');
+  names: array [CColor] of string[9] = ('olive', 'red', 'blue', 'yellow', 'green', 'white', 'black', 'orange', 'gray');   //Color Choices Limiting
 var
   cl: CColor;
   S: string;
 begin
-  for cl := red to orange do
+  for cl := olive to gray do
     if cl in c then
     begin
       if (S <> '') then
