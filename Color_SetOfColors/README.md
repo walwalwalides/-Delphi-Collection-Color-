@@ -1,5 +1,5 @@
 # Color_SetOfColors
-- Use a Set to Collect Colors From a ListBoxColor.
+- Use a Set to Collect Colors From a ListboxColor.
                                                              
 ![](SetOfColors.png) 
 
