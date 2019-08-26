@@ -10,10 +10,10 @@ My Own Delphi-Collection ( Color )
 
 | File | Contents | 
 | --- | --- |
-| .gitignore | Git ignores the files in this file |
+| .gitignore | Git ignores the Files in this File |
 |[Color_SetOfColors](https://github.com/walwalwalides/Delphi-Collection-Color/tree/master/Color_SetOfColors)| Use a Set to Collect Colors From a ListBoxColor|
 |[Color_clConverter](https://github.com/walwalwalides/Delphi-Collection-Color/tree/master/Color_clConverter)| Convert HEX Color To HTML Color Code|
-| README.md | The readme for this project|
+| README.md | The Readme for this Project|
 
 ------
 
